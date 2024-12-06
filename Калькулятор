@@ -1,0 +1,50 @@
+def main(data):
+
+    count = 0
+    first = 0
+    second = 0
+    sym = ('+', '-', '*', '/')
+
+    try:
+
+        for num in data:
+            count += 1
+
+            for i in sym:
+
+                if num == i:
+                    first = int(data[:count - 1])
+                    second = int(data[count:])
+                    sign = i
+
+        if first <= 10 and second <= 10:
+
+            if sign == '+':
+                answer = first + second
+
+            elif sign == '-':
+                answer = first - second
+
+            elif sign == '*':
+                answer = first * second
+
+            elif sign == '/':
+                answer = first // second
+
+        conversion = str(answer)
+
+        return print('Ответ:{0}'.format(conversion))
+
+    except:
+        return print('Ошибка:некорректный ввод.')
+
+print('Для выхода из программы нажмите C(Англ.)')
+
+while True:
+
+    data = input('Ввод:')
+
+    if data == 'C':
+        break
+
+    main(data)
